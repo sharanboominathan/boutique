@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boutique &amp; Tailoring | Custom Blouses, Lehengas, Kurtis &amp; Alterations</title>
+<meta name="description" content="Custom stitching for blouses, lehengas, kurtis, gowns, kids wear and alterations. Design your outfit and order on WhatsApp.">
+<meta name="theme-color" content="#4a0a22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf6f7; --bg2:#f3eaed; --mr:#5e0d29; --mr2:#4a0a22; --mr3:#7a1236; --gold:#f2b100; --gold-d:#7d5800; --ink:#2a1a20; --mut:#6b5760; --card:#fff; --line:rgba(42,26,32,.14); --wa:#14853f;
+  --serif:'Marcellus',Georgia,serif; --sans:'Jost',system-ui,sans-serif; --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+svg{display:block}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+::selection{background:var(--gold);color:#000}
+
+.loader{position:fixed;inset:0;z-index:200;background:var(--mr2);display:grid;place-items:center;transition:clip-path 1s var(--ease) .15s;clip-path:inset(0 0 0 0)}
+.loader.done{clip-path:inset(0 0 100% 0)}
+.loader svg{width:min(60vw,300px);overflow:visible}
+.loader path{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:6 9;animation:run 1.4s linear infinite}
+.loader text{font-family:var(--serif);font-size:30px;letter-spacing:8px;fill:#fff}
+@keyframes run{to{stroke-dashoffset:-30}}
+
+header{position:fixed;inset:0 0 auto 0;z-index:60;transition:.35s}
+header.solid{background:rgba(74,10,34,.92);backdrop-filter:blur(12px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px;color:#fff}
+.brand{font-family:var(--serif);font-size:1.35rem;letter-spacing:.06em;display:flex;align-items:center;gap:10px;min-width:0}
+.brand svg{width:30px;height:30px;flex:none}
+.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
+nav ul{display:flex;gap:30px;list-style:none;font-size:.92rem;letter-spacing:.1em;text-transform:uppercase}
+nav a.l{color:#f1d9e0;position:relative;padding:4px 0;transition:.3s}
+nav a.l::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+nav a.l:hover{color:#fff} nav a.l:hover::after{transform:scaleX(1)}
+
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;border-radius:2px;font-weight:600;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease)}
+.btn--g{background:var(--gold);color:#241500}
+.btn--g::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;transform:scaleY(0);transform-origin:bottom;transition:transform .4s var(--ease)}
+.btn--g:hover::before{transform:scaleY(1)} .btn--g:hover{transform:translateY(-2px)}
+.btn--o{box-shadow:inset 0 0 0 1.5px currentColor} .btn--o:hover{background:#fff;color:var(--mr2)}
+.btn--m{background:var(--mr);color:#fff} .btn--m:hover{background:var(--mr3)}
+.btn--wa{background:var(--wa);color:#fff}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:110px 0 90px;color:#fff;overflow:hidden;
+  background:radial-gradient(700px 520px at 78% 45%,#7a1236,transparent 70%),linear-gradient(160deg,var(--mr2),#35071a)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.07;background-image:repeating-linear-gradient(45deg,#fff 0 1px,transparent 1px 14px),repeating-linear-gradient(-45deg,#fff 0 1px,transparent 1px 14px)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.kicker{font-size:.86rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.7rem,6.4vw,5.4rem);line-height:1.02;letter-spacing:-.01em;margin:18px 0 22px}
+h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .l>span{display:inline-block;transform:translateY(110%);transition:transform 1s var(--ease)}
+.ready h1 .l>span{transform:none}
+h1 .l:nth-child(2)>span{transition-delay:.12s}
+h1 .gd{color:var(--gold)}
+.lead{max-width:46ch;color:#eed6de;font-size:1.12rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:30px;margin-top:40px}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:1.8rem;line-height:1.1;color:var(--gold)}
+.facts span{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#e6c9d2}
+.up{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.ready .up{opacity:1;transform:none}.u1{transition-delay:.4s}.u2{transition-delay:.6s}.u3{transition-delay:.8s}
+
+.stage{position:relative;max-width:420px;margin-inline:auto;width:100%;aspect-ratio:.82}
+.arch{position:absolute;inset:0;border-radius:999px 999px 18px 18px;background:linear-gradient(170deg,rgba(255,255,255,.14),rgba(255,255,255,.04));box-shadow:inset 0 0 0 1.5px rgba(242,177,0,.5)}
+.arch::before{content:"";position:absolute;inset:14px;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(242,177,0,.3)}
+.bodice{position:absolute;left:8%;right:8%;top:14%;bottom:14%;animation:sway 6s ease-in-out infinite;filter:drop-shadow(0 30px 24px rgba(0,0,0,.5))}
+@keyframes sway{50%{transform:translateY(-10px) rotate(1.2deg)}}
+.bodice svg,.pv svg{width:100%;height:100%;overflow:visible}
+.bd,.sl{fill:var(--fab,#7a1236);transition:fill .7s var(--ease)}
+.sl{stroke:rgba(0,0,0,.18);stroke-width:1}
+.bd{stroke:rgba(0,0,0,.18);stroke-width:1}
+.st{fill:none;stroke:rgba(255,255,255,.85);stroke-width:1.4;stroke-dasharray:5 5;animation:run 1.2s linear infinite}
+.swatches{position:absolute;left:50%;bottom:-6%;transform:translateX(-50%);display:flex;gap:10px;padding:10px 14px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border-radius:99px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.sw{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7);transition:transform .3s var(--ease)}
+.sw:hover{transform:scale(1.2)} .sw.on{box-shadow:0 0 0 3px var(--gold),inset 0 0 0 2px #fff}
+.tag{position:absolute;padding:9px 14px;background:#fff;color:var(--mr2);border-radius:2px;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 18px 30px -16px #000;animation:bob 6s ease-in-out infinite}
+.t1{left:-6%;top:22%}.t2{right:-5%;top:50%;animation-delay:-3s}
+@keyframes bob{50%{translate:0 -10px}}
+
+/* tape ticker */
+.tape{position:relative;background:var(--gold);color:#241500;overflow:hidden;padding:16px 0 22px;z-index:2}
+.tape::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(90deg,#241500 0 1.5px,transparent 1.5px 10px),repeating-linear-gradient(90deg,#241500 0 2px,transparent 2px 50px);background-size:100% 6px,100% 12px;background-repeat:no-repeat;background-position:bottom,bottom}
+.track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.track span{display:flex;align-items:center;gap:36px;padding-right:36px;font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.8rem);white-space:nowrap}
+.track span::after{content:"✂";font-size:1rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(70px,10vw,120px) 0}
+.k{font-size:.82rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-d)}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.01em;margin-top:12px}
+h2 .mr{color:var(--mr3)}
+.head{max-width:700px;margin-bottom:44px}
+.head p{color:var(--mut);margin-top:14px;max-width:52ch}
+[data-r]{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*80ms)}
+[data-r].in{opacity:1;transform:none}
+
+/* builder */
+.build{display:grid;grid-template-columns:1.05fr .95fr;background:#fff;box-shadow:0 40px 80px -56px rgba(74,10,34,.6);border-radius:6px;overflow:hidden}
+.ctl{padding:clamp(24px,4.5vw,52px);display:grid;gap:22px}
+.grp>label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:9px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:10px 16px;border-radius:2px;box-shadow:inset 0 0 0 1.5px var(--line);font-weight:500;font-size:.92rem;transition:.25s var(--ease);background:#fff}
+.chip:hover{box-shadow:inset 0 0 0 1.5px var(--mr3)}
+.chip.on{background:var(--mr);color:#fff;box-shadow:none}
+.sws{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.sws .sw{width:34px;height:34px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.8),0 0 0 1px var(--line)}
+.sws .sw.on{box-shadow:inset 0 0 0 2px #fff,0 0 0 3px var(--mr3)}
+.sws b{font-weight:500;color:var(--mut);margin-left:4px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.in-f input{width:100%;padding:13px 14px;border:0;border-radius:2px;box-shadow:inset 0 0 0 1.5px var(--line);font:500 1rem var(--sans);outline:0;transition:box-shadow .25s;background:#fff}
+.in-f input:focus{box-shadow:inset 0 0 0 2px var(--mr3)}
+.side{background:linear-gradient(170deg,var(--mr2),#35071a);color:#fff;padding:clamp(24px,4.5vw,48px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.pv{width:min(290px,80%);aspect-ratio:.95;filter:drop-shadow(0 26px 22px rgba(0,0,0,.45))}
+.sum{font-size:.98rem;color:#f1d9e0;line-height:1.7}
+.sum b{color:var(--gold);font-weight:600}
+.note{font-size:.8rem;color:#d9b9c3}
+
+/* services */
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.it{position:relative;text-align:left;display:flex;flex-direction:column;gap:8px;padding:26px 22px;background:#fff;border-radius:4px;box-shadow:inset 0 0 0 1.5px var(--line);transition:transform .45s var(--ease),box-shadow .3s;overflow:hidden}
+.it:hover{transform:translateY(-5px);box-shadow:inset 0 0 0 1.5px var(--mr3)}
+.it h3{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.2}
+.it p{font-size:.92rem;color:var(--mut)}
+.it .add{margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:10px;font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mr3)}
+.it .add i{display:grid;place-items:center;width:24px;height:24px;border-radius:2px;box-shadow:inset 0 0 0 1.5px var(--mr3);font-style:normal;transition:.3s var(--ease)}
+.it.sel{background:var(--mr);box-shadow:none}.it.sel h3,.it.sel p,.it.sel .add{color:#fff}
+.it.sel .add i{background:var(--gold);color:#241500;box-shadow:none;transform:rotate(135deg)}
+
+/* steps + measure */
+.dark{background:var(--mr2);color:#fff}
+.dark h2{color:#fff}.dark .k{color:var(--gold)}.dark .head p{color:#e6c9d2}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.fs{padding:26px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);border-radius:4px}
+.fs b{font-family:var(--serif);font-weight:400;font-size:2.6rem;color:var(--gold);line-height:1}
+.fs h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin:8px 0 6px}
+.fs p{font-size:.93rem;color:#e6c9d2}
+.ms{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;margin-top:70px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tab{padding:10px 18px;border-radius:2px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35);font-weight:500;transition:.25s}
+.tab:hover{box-shadow:inset 0 0 0 1.5px var(--gold)} .tab.on{background:var(--gold);color:#241500;box-shadow:none}
+.mbox{padding:34px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);border-radius:4px;min-height:190px}
+.mbox h3{font-family:var(--serif);font-weight:400;font-size:1.8rem;color:var(--gold)}
+.mbox p{margin-top:10px;color:#f1d9e0;max-width:48ch}
+.mbox .tp{position:relative;height:22px;margin-top:22px;background:var(--gold);border-radius:2px;overflow:hidden}
+.mbox .tp::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,#241500 0 1.5px,transparent 1.5px 8px);background-size:100% 9px;background-repeat:no-repeat;background-position:bottom}
+.mbox .tp i{position:absolute;top:0;bottom:0;left:0;width:0;background:rgba(122,18,54,.45);transition:width 1s var(--ease)}
+.fade{animation:pop .5s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}}
+
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.wc{padding:26px;background:#fff;border-radius:4px;box-shadow:inset 0 0 0 1.5px var(--line);transition:transform .4s var(--ease)}
+.wc:hover{transform:translateY(-6px)}
+.wc h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin-bottom:6px;color:var(--mr3)}
+.wc p{font-size:.93rem;color:var(--mut)}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.cl{display:grid;gap:12px;margin-top:24px}
+.cl a,.cl div{display:flex;gap:14px;align-items:center;padding:15px 18px;background:#fff;border-radius:4px;box-shadow:inset 0 0 0 1.5px var(--line);transition:.3s}
+.cl a:hover{box-shadow:inset 0 0 0 1.5px var(--mr3);transform:translateX(6px)}
+.cl .ic{width:40px;height:40px;display:grid;place-items:center;background:var(--bg2);border-radius:2px;flex:none}
+.cl b{display:block;font-weight:600}.cl small{color:var(--mut)}
+.mapbox{height:380px;border-radius:6px;overflow:hidden;box-shadow:inset 0 0 0 1.5px var(--line)}
+.mapbox iframe{width:100%;height:100%;border:0}
+.pitch{padding:clamp(34px,6vw,64px);background:linear-gradient(120deg,var(--mr2),var(--mr3));color:#fff;text-align:center;border-radius:6px}
+.pitch h2{font-size:clamp(1.7rem,3.6vw,2.8rem)} .pitch h2 .mr{color:var(--gold)} .pitch .k{color:var(--gold)}
+.pitch p{color:#eed6de;margin:14px auto 24px;max-width:52ch}
+footer{padding:36px 0 110px;text-align:center;color:var(--mut);font-size:.9rem}
+
+.tray{position:fixed;left:50%;bottom:20px;z-index:70;transform:translate(-50%,160%);transition:transform .7s var(--ease);width:min(560px,100% - 28px)}
+.tray.show{transform:translate(-50%,0)}
+.tray-in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 20px;background:var(--mr2);color:#fff;border-radius:4px;box-shadow:0 24px 50px -10px rgba(0,0,0,.6),inset 0 0 0 1.5px var(--gold)}
+.tray b{font-family:var(--serif);font-weight:400;font-size:1.1rem}
+.tray small{display:block;color:#e6c9d2;font-size:.76rem;max-width:26ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tray .btn{padding:12px 18px;font-size:.8rem}
+.fab{position:fixed;right:18px;bottom:22px;z-index:65;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.5);transition:transform .3s var(--ease)}
+.fab:hover{transform:scale(1.1)} .fab svg{width:28px;height:28px}
+.tray.show ~ .fab{bottom:92px}
+
+@media(max-width:900px){
+  nav ul{display:none}
+  .hero-grid,.build,.ms,.contact{grid-template-columns:1fr}
+  .stage{max-width:330px;order:-1}
+  .flow,.why{grid-template-columns:1fr 1fr}
+  header .btn{padding:11px 16px;font-size:.78rem;white-space:nowrap}
+  .tag{font-size:.74rem;padding:7px 10px}
+}
+@media(max-width:560px){.flow,.why,.row2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  h1 .l>span,.up,[data-r]{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true"><svg viewBox="0 0 300 120"><text x="150" y="62" text-anchor="middle">STITCH</text><path d="M20 90H280"/></svg></div>
+
+<header id="hdr"><div class="wrap nav">
+  <a class="brand" href="#top"><svg viewBox="0 0 32 32" fill="none" stroke="#f2b100" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="24" r="4"/><circle cx="23" cy="24" r="4"/><path d="M12 21 24 5M20 21 8 5"/></svg><span data-name>Boutique &amp; Tailoring</span></a>
+  <nav aria-label="Main"><ul><li><a class="l" href="#design">Design</a></li><li><a class="l" href="#services">Services</a></li><li><a class="l" href="#how">How it works</a></li><li><a class="l" href="#visit">Visit</a></li></ul></nav>
+  <a class="btn btn--g" data-wa="Hi, I'd like to place a stitching order." href="#" target="_blank" rel="noopener">Order now</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <p class="kicker up u1"><span data-name>Boutique &amp; Tailoring</span><span data-area-tag></span></p>
+    <h1><span class="l"><span>Made for you,</span></span><span class="l"><span class="gd">stitch by stitch.</span></span></h1>
+    <p class="lead up u2">Blouses, lehengas, kurtis, gowns, kids wear and alterations, cut and stitched to your measurements. Design your outfit online and send it to us on WhatsApp.</p>
+    <div class="cta up u3">
+      <a class="btn btn--g" data-wa="Hi, I'd like to place a stitching order." href="#" target="_blank" rel="noopener">Order on WhatsApp</a>
+      <a class="btn btn--o" href="#design">Design my outfit</a>
+    </div>
+    <div class="facts up u3">
+      <div id="ratingFact" hidden><b id="ratingVal">5.0 ★</b><span>Google rating</span></div>
+      <div><b>Custom fit</b><span>Every outfit</span></div>
+      <div><b>1 chat</b><span>To place an order</span></div>
+    </div>
+  </div>
+  <div class="stage up u2">
+    <div class="arch"></div>
+    <div class="bodice" id="heroBodice"></div>
+    <span class="tag t1">Neck &amp; sleeve your way</span><span class="tag t2">Any colour</span>
+    <div class="swatches" id="heroSw"></div>
+  </div>
+</div></section>
+
+<div class="tape" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section id="design"><div class="wrap">
+  <div class="head" data-r><span class="k">Design studio</span><h2>Design your outfit. <span class="mr">See it first.</span></h2><p>Pick a style, neckline, sleeve and colour. Your choices go to us on WhatsApp as a ready order message.</p></div>
+  <div class="build" data-r>
+    <div class="ctl">
+      <div class="grp"><label>Garment</label><div class="chips" data-g="garment"></div></div>
+      <div class="grp"><label>Neckline</label><div class="chips" data-g="neck"></div></div>
+      <div class="grp"><label>Sleeve</label><div class="chips" data-g="sleeve"></div></div>
+      <div class="grp"><label>Occasion</label><div class="chips" data-g="occ"></div></div>
+      <div class="grp"><label>Fabric colour</label><div class="sws" id="sws"></div></div>
+      <div class="row2 in-f"><div class="grp"><label for="fn">Your name</label><input id="fn" placeholder="e.g. Priya"></div><div class="grp"><label for="fd">Needed by</label><input id="fd" type="date"></div></div>
+    </div>
+    <div class="side">
+      <div class="pv" id="pv"></div>
+      <div class="sum" id="sum"></div>
+      <a class="btn btn--g" id="bo" href="#" target="_blank" rel="noopener">Send this design on WhatsApp</a>
+      <p class="note">Preview shows the top. Tell us about the rest of the outfit on WhatsApp.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="services" style="padding-top:0"><div class="wrap">
+  <div class="head" data-r><span class="k">What we stitch</span><h2>From blouses to <span class="mr">bridal wear.</span></h2><p>Tap everything you need. We will confirm timing and details on WhatsApp.</p></div>
+  <div class="menu" id="menu"></div>
+</div></section>
+
+<section class="dark" id="how"><div class="wrap">
+  <div class="head" data-r><span class="k">How ordering works</span><h2>Four steps. <span style="color:var(--gold)">No confusion.</span></h2></div>
+  <div class="flow">
+    <article class="fs" data-r style="--i:0"><b>01</b><h3>Share your design</h3><p>Send a picture or use the design studio above.</p></article>
+    <article class="fs" data-r style="--i:1"><b>02</b><h3>Measurements</h3><p>Visit us, or send your measurements using the guide below.</p></article>
+    <article class="fs" data-r style="--i:2"><b>03</b><h3>Trial fitting</h3><p>Check the fit before the final finishing.</p></article>
+    <article class="fs" data-r style="--i:3"><b>04</b><h3>Delivery on time</h3><p>Tell us your date. We plan the stitching around it.</p></article>
+  </div>
+  <div class="ms" data-r>
+    <div><span class="k">Measure guide</span><h2 style="font-size:clamp(1.8rem,3.6vw,2.8rem)">How to take <span style="color:var(--gold)">your measurements.</span></h2>
+      <div class="tabs" id="tabs"></div></div>
+    <div class="mbox" id="mbox"></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head" data-r><span class="k">Why it fits better</span><h2>Clothes that feel <span class="mr">like yours.</span></h2></div>
+  <div class="why">
+    <article class="wc" data-r style="--i:0"><h3>Made to measure</h3><p>Outfits cut for your body look better and feel more comfortable than ready-made.</p></article>
+    <article class="wc" data-r style="--i:1"><h3>Plan ahead</h3><p>Festival and wedding weeks get busy. Order two weeks early for a relaxed delivery.</p></article>
+    <article class="wc" data-r style="--i:2"><h3 id="pT">Trusted nearby</h3><p id="pP">Customers return for every function and tell their friends.</p></article>
+    <article class="wc" data-r style="--i:3"><h3>Easy alterations</h3><p>Loose, tight or too long? We fix the fit so the outfit gets worn.</p></article>
+  </div>
+</div></section>
+
+<section id="visit" style="padding-top:0"><div class="wrap contact">
+  <div data-r><span class="k">Visit us</span><h2>Come for a fitting. <span class="mr">Leave with a favourite.</span></h2>
+    <div class="cl">
+      <div><span class="ic">📍</span><span><b data-name>Our boutique</b><small id="addr">Ask us for directions on WhatsApp</small></span></div>
+      <a id="callLink" href="#"><span class="ic">📞</span><span><b id="phoneTxt">Call us</b><small>Tap to call</small></span></a>
+      <a data-wa="Hi, I'd like to place a stitching order." href="#" target="_blank" rel="noopener"><span class="ic">💬</span><span><b>Chat on WhatsApp</b><small>Share your design and date</small></span></a>
+    </div></div>
+  <div class="mapbox" data-r><iframe id="map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="about:blank"></iframe></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap"><div class="pitch" data-r>
+  <span class="k">Demo preview</span>
+  <h2>This website was made for <span class="mr" data-name>you</span>.</h2>
+  <p>Want it live under your name, with your own designs, prices and a WhatsApp order button? SEONova builds and hosts it for you.</p>
+  <a class="btn btn--g" href="mailto:hello@seonova.in?subject=I%20want%20this%20website">Get this website</a>
+</div></div></section>
+</main>
+
+<footer><p>Demo website preview · built by SEONova</p></footer>
+
+<div class="tray" id="tray"><div class="tray-in"><div><b id="tc">0 selected</b><small id="tl"></small></div><a class="btn btn--wa" id="ts" href="#" target="_blank" rel="noopener">Send on WhatsApp</a></div></div>
+<a class="fab" data-wa="Hi, I'd like to place a stitching order." href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.4.1.2.1.8-.1 1.4z"/></svg></a>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+  /* per-lead link: ?b=Name&a=Area&p=919XXXXXXXXX&r=4.5 */
+  var q=new URLSearchParams(location.search);
+  var NAME=(q.get('b')||'').trim().slice(0,60),AREA=(q.get('a')||'').trim().slice(0,80);
+  var PHONE=(q.get('p')||'').replace(/\D/g,'');if(PHONE.length===10)PHONE='91'+PHONE;
+  var RATING=parseFloat(q.get('r'));
+  $$('[data-name]').forEach(function(e){e.textContent=NAME||(e.classList.contains('mr')?'you':e.closest('.cl')?'Our boutique':'Boutique & Tailoring')});
+  if(NAME)document.title=NAME+(AREA?' | '+AREA:'')+' | Boutique & Tailoring';
+  if(AREA){$('[data-area-tag]').textContent=' · '+AREA;$('#addr').textContent=AREA}
+  $('#map').src='https://maps.google.com/maps?q='+encodeURIComponent((NAME+' '+AREA).trim()||'boutique tailor')+'&output=embed';
+  if(RATING>0&&RATING<=5){$('#ratingFact').hidden=false;$('#ratingVal').textContent=RATING.toFixed(1)+' ★';$('#pT').textContent='Rated '+RATING.toFixed(1)+' on Google';$('#pP').textContent='Customers have rated us highly. Come and see why.'}
+  if(PHONE){$('#callLink').href='tel:+'+PHONE;$('#phoneTxt').textContent='+'+PHONE.replace(/^91(\d{5})(\d{5})$/,'91 $1 $2')}else $('#callLink').style.display='none';
+  var wa=function(t){return 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(t)};
+  var sign=function(t){return t+(NAME?'\n(via '+NAME+' website)':'')};
+  $$('[data-wa]').forEach(function(a){a.href=wa(sign(a.dataset.wa))});
+
+  /* tape */
+  var W=['Blouses','Lehengas','Kurtis','Churidars','Gowns','Kids wear','Alterations','Aari work','Men\'s shirts'];
+  var th=W.map(function(w){return '<span>'+w+'</span>'}).join('');$('#track').innerHTML=th+th;
+
+  /* bodice drawing */
+  var NECK={'Round':'M82 24 Q120 84 158 24 Z','Boat':'M76 24 Q120 54 164 24 Z','Sweetheart':'M84 24 C84 58 108 62 120 76 C132 62 156 58 156 24 Z','High neck':'M102 24 Q120 38 138 24 Z','Deep V':'M90 24 L120 108 L150 24 Z'};
+  var SLV={'Sleeveless':'','Short':'M72 30 L36 64 L48 106 L66 94 L60 62 Z','Elbow':'M72 30 L34 66 L40 156 L62 150 L60 62 Z','Full':'M72 30 L32 66 L32 244 L56 244 L58 62 Z'};
+  var COL=[['Maroon','#7a1236'],['Emerald','#0f6b4f'],['Royal blue','#1c3d8f'],['Mustard','#d99a0b'],['Pink','#d6336c'],['Teal','#0b7a7e'],['Black','#1c1c1c'],['Ivory','#efe2cc']];
+  var uid=0;
+  function bodice(host){var id='mk'+(uid++);
+    host.innerHTML='<svg viewBox="0 0 240 270"><defs><mask id="'+id+'"><rect width="240" height="270" fill="#fff"/><path class="nk" fill="#000"/></mask></defs>'
+      +'<path class="sl l" /><g transform="translate(240,0) scale(-1,1)"><path class="sl r" /></g>'
+      +'<path class="bd" mask="url(#'+id+')" d="M70 28 Q120 14 170 28 L192 62 L184 218 Q120 236 56 218 L48 62 Z"/>'
+      +'<path class="st nks"/><path class="st" d="M58 208 Q120 226 182 208"/></svg>';
+    return host}
+  function paint(host,o){var s=host.querySelector('svg');s.style.setProperty('--fab',o.color);
+    $('.nk',host).setAttribute('d',NECK[o.neck]);$('.nks',host).setAttribute('d',NECK[o.neck].replace(' Z',''));
+    $('.sl.l',host).setAttribute('d',SLV[o.sleeve]);$('.sl.r',host).setAttribute('d',SLV[o.sleeve])}
+
+  /* hero cycling */
+  var hb=bodice($('#heroBodice')),hs=$('#heroSw'),HC=0,NK=Object.keys(NECK),SK=Object.keys(SLV);
+  var hstate={neck:'Round',sleeve:'Short',color:COL[0][1]};paint(hb,hstate);
+  COL.slice(0,6).forEach(function(c,i){var b=document.createElement('button');b.type='button';b.className='sw'+(i?'':' on');b.style.background=c[1];b.setAttribute('aria-label',c[0]);
+    b.onclick=function(){clearInterval(auto);hstate.color=c[1];$$('.sw',hs).forEach(function(x){x.classList.remove('on')});b.classList.add('on');paint(hb,hstate)};hs.appendChild(b)});
+  var auto=setInterval(function(){HC++;hstate.neck=NK[HC%NK.length];hstate.sleeve=SK[(HC+1)%SK.length];hstate.color=COL[HC%6][1];
+    $$('.sw',hs).forEach(function(x,i){x.classList.toggle('on',i===HC%6)});paint(hb,hstate)},2800);
+
+  /* builder */
+  var O={garment:'Blouse',neck:'Round',sleeve:'Short',occ:'Wedding',color:COL[0]};
+  var G={garment:['Blouse','Kurti top','Churidar set','Lehenga choli','Gown','Kids frock'],neck:NK,sleeve:SK,occ:['Wedding','Festival','Party','Daily wear','Office']};
+  var pv=bodice($('#pv'));
+  Object.keys(G).forEach(function(k){var host=$('[data-g="'+k+'"]');G[k].forEach(function(v){var b=document.createElement('button');b.type='button';b.className='chip'+(O[k]===v?' on':'');b.textContent=v;
+    b.onclick=function(){O[k]=v;$$('.chip',host).forEach(function(x){x.classList.toggle('on',x===b)});draw()};host.appendChild(b)})});
+  COL.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.className='sw'+(i?'':' on');b.style.background=c[1];b.setAttribute('aria-label',c[0]);
+    b.onclick=function(){O.color=c;$$('.sw',$('#sws')).forEach(function(x){x.classList.toggle('on',x===b)});draw()};$('#sws').appendChild(b)});
+  $('#sws').insertAdjacentHTML('beforeend','<b id="cn">Maroon</b>');
+  ['fn','fd'].forEach(function(id){$('#'+id).addEventListener('input',draw)});
+  function msg(){var n=$('#fn').value.trim(),d=$('#fd').value;
+    return sign('Hi, I would like to order a stitching.\n'+(n?'Name: '+n+'\n':'')+'Garment: '+O.garment+'\nNeckline: '+O.neck+'\nSleeve: '+O.sleeve+'\nOccasion: '+O.occ+'\nColour: '+O.color[0]+(d?'\nNeeded by: '+d:''))}
+  function draw(){paint(pv,{neck:O.neck,sleeve:O.sleeve,color:O.color[1]});$('#cn').textContent=O.color[0];
+    $('#sum').innerHTML='<b>'+O.garment+'</b> · '+O.neck+' neckline · '+O.sleeve+' sleeve<br>'+O.color[0]+' · for '+O.occ.toLowerCase();$('#bo').href=wa(msg())}
+  draw();
+
+  /* services */
+  var S=[['Blouse stitching','Perfect-fit blouses for sarees, any neck and sleeve.'],['Aari & maggam work','Hand embroidery and bead work on blouses and outfits.'],['Lehenga & bridal wear','Lehengas, half sarees and bridal outfits.'],['Kurtis & churidars','Everyday and festive salwar sets.'],['Gowns & party wear','Evening gowns and designer dresses.'],['Kids wear','Frocks, pattu pavadai and festive wear.'],['Alterations','Resizing, hemming and fixing the fit.'],["Men's shirts & trousers",'Stitched to measure for a sharp look.']];
+  var sel={},menu=$('#menu');
+  S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.className='it';b.dataset.r='';b.style.setProperty('--i',i%4);
+    b.innerHTML='<h3>'+s[0]+'</h3><p>'+s[1]+'</p><span class="add"><i>+</i><span class="lbl">Add to order</span></span>';
+    b.onclick=function(){var on=b.classList.toggle('sel');b.querySelector('.lbl').textContent=on?'Added':'Add to order';if(on)sel[s[0]]=1;else delete sel[s[0]];upd()};menu.appendChild(b)});
+  function upd(){var l=Object.keys(sel);$('#tc').textContent=l.length+(l.length===1?' service':' services');$('#tl').textContent=l.join(' · ');$('#tray').classList.toggle('show',l.length>0);$('#ts').href=wa(sign('Hi, I would like to enquire about: '+l.join(', ')+'.'))}
+  upd();
+
+  /* measure guide */
+  var M={'Bust':['Bust','Wrap the tape around the fullest part of your chest, under the arms, keeping it level and snug but not tight.',85],'Waist':['Waist','Measure around your natural waist, the narrowest part of your torso, usually just above the navel.',65],'Shoulder':['Shoulder','Measure from the edge of one shoulder across your back to the edge of the other shoulder.',45],'Sleeve':['Sleeve length','From the shoulder edge down to where you want the sleeve to end. Keep your arm relaxed.',60],'Length':['Top length','From the highest point of the shoulder near the neck down to where you want the hem.',90]};
+  Object.keys(M).forEach(function(k,i){var b=document.createElement('button');b.type='button';b.className='tab'+(i?'':' on');b.textContent=k;
+    b.onclick=function(){$$('.tab').forEach(function(x){x.classList.toggle('on',x===b)});show(k)};$('#tabs').appendChild(b)});
+  function show(k){var m=M[k];$('#mbox').innerHTML='<div class="fade"><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="tp"><i id="tpi"></i></div></div>';setTimeout(function(){$('#tpi').style.width=m[2]+'%'},60)}
+  show('Bust');
+
+  /* reveal, header, loader */
+  var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ob.unobserve(e.target)}})},{threshold:.12});
+  $$('[data-r]').forEach(function(el){ob.observe(el)});
+  addEventListener('scroll',function(){$('#hdr').classList.toggle('solid',scrollY>30)},{passive:true});
+  setTimeout(function(){$('#loader').classList.add('done');document.body.classList.add('ready')},1500);
+})();
+</script>
+</body>
+</html>

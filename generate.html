@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Boutique demo link generator</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#fff7f3;color:#3b1530;margin:0;padding:24px;display:grid;place-items:start center}
+.box{width:min(560px,100%);background:#fff;border-radius:20px;padding:28px;box-shadow:0 20px 50px -30px rgba(59,21,48,.5)}
+h1{margin:0 0 4px;font-size:1.4rem} p{margin:0 0 18px;color:#6b4a5e;font-size:.9rem}
+label{display:block;font-weight:600;font-size:.8rem;margin:12px 0 4px}
+input,textarea{width:100%;box-sizing:border-box;padding:12px;border:1.5px solid #e6d5da;border-radius:12px;font:inherit}
+button{margin-top:16px;padding:13px 22px;border:0;border-radius:99px;background:#e9507f;color:#fff;font-weight:700;cursor:pointer}
+.out{margin-top:18px;word-break:break-all;background:#fff4f7;padding:12px;border-radius:12px;font-size:.85rem}
+</style></head><body><div class="box">
+<h1>Boutique demo link generator</h1><p>Fill the lead's details from the sheet. Copy the link or the ready WhatsApp message.</p>
+<label>Business name</label><input id="b" placeholder="Sri Vinayaka Designer Boutique">
+<label>Area</label><input id="a" placeholder="Selaiyur, Chennai">
+<label>Their phone (the number you will WhatsApp)</label><input id="p" placeholder="9003003670">
+<label>Google rating (optional)</label><input id="r" placeholder="4.6">
+<button id="go">Make link</button>
+<div class="out" id="out" hidden></div>
+<div id="btns" hidden><button id="copy">Copy link</button> <button id="msg">Copy WhatsApp message</button> <button id="open">Open on WhatsApp</button></div>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)},link='',text='';
+$('go').onclick=function(){
+  var u=new URL('index.html',location.href.replace(/generate\.html.*$/,''));
+  [['b','b'],['a','a'],['p','p'],['r','r']].forEach(function(k){var v=$(k[0]).value.trim();if(v)u.searchParams.set(k[1],v)});
+  link=u.toString();
+  text='Hi, this is from SEONova. I made a sample website for '+($('b').value.trim()||'your business')+' so you can see how it could look online:\n'+link+'\nIf you like it, I can put it live with your own photos and prices.';
+  $('out').hidden=false;$('out').textContent=link;$('btns').hidden=false};
+$('copy').onclick=function(){navigator.clipboard.writeText(link)};
+$('msg').onclick=function(){navigator.clipboard.writeText(text)};
+$('open').onclick=function(){var p=$('p').value.replace(/\D/g,'');if(p.length===10)p='91'+p;open('https://wa.me/'+p+'?text='+encodeURIComponent(text),'_blank','noopener')};
+</script></body></html>
